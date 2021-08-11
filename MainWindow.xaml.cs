@@ -27,7 +27,8 @@ namespace VisualTreeCollapseIssue001
         {
             var row = ExampleDataGrid.ItemContainerGenerator.ContainerFromItem(ExampleDataGrid.Items[0]);
             var descendantBounds = VisualTreeHelper.GetDescendantBounds(row as Visual);
-            Row1Bounds.Text = $"Bounds: {descendantBounds}";
+            var workaroundBounds = VisualTreeDescendantBoundsHelper.GetVisibleDescendantBounds(row as Visual);
+            Row1Bounds.Text = $"Bounds: {descendantBounds}, Workaround Bounds: {workaroundBounds}";
         }
     }
 }
